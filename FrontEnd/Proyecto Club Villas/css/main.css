@@ -1,0 +1,16 @@
+body {
+  width: 100% vw;
+  height: 100% vh;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.container>* {
+  padding: 10px;
+}
