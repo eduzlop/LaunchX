@@ -1,7 +1,40 @@
 import React from "react";
+import CheckBox from "./CheckBox";
 
-const TaskList = () => {
-  return <div>FormTodo</div>;
+const TaskList = (props) => {
+  const { list, setList } = props;
+
+  const onChangeStatus = (e) => {
+    const { name, checked } = e.target;
+
+    const updateList = list.map((item) => ({
+      ...item,
+      done: item.id === name ? checked : item.done,
+    }));
+    setList(updateList);
+  };
+  
+  const onClickRemoveItem = (e) => {
+    const updateList = list.filter((item) => !item.done);
+    setList(updateList);
+  };
+
+  const chk = list.map((item) => (
+  <CheckBox key={item.id} data={item} onChange={onChangeStatus}></CheckBox>
+  ));
+console.log(chk)
+  return (
+    <div className="todo-list">
+      {list.length ? chk : "No hay tareas"}
+      {list.length ? (
+        <p>
+          <button className="button blue" onClick={onClickRemoveItem}>
+            Borrar tareas completadas
+          </button>
+        </p>
+      ) : null}
+    </div>
+  );
 };
 
 export default TaskList;

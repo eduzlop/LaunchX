@@ -1,12 +1,11 @@
+import React from "react";
 import "./App.scss";
-import FormTodo from "./components/FormTodo";
-import TaskList from "./components/TaskList";
-import CheckBox from "./components/CheckBox";
+import Container from "./components/Container";
 
 function App() {
   return (
     <div className="App">
-      <div>TaskList</div>
+      <Container />
     </div>
   );
 }
